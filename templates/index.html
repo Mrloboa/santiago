@@ -1,0 +1,219 @@
+{% extends "base.html" %}
+
+{% block title %}Santiago Lozano | Marketing Digital{% endblock %}
+
+{% block meta_tags %}
+    <meta property="og:title" content="Santiago Lozano | Especialista en Marketing y Ciberseguridad">
+    <meta property="og:description" content="Desarrollo de alianzas estratégicas, creación web y seguridad avanzada para expandir tu alcance digital de manera orgánica y medible.">
+    <meta property="og:image" content="{{ url_for('static', filename='IMG/logo so.webp') }}"> 
+    <meta property="og:type" content="website">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+<div class="contenedor-progreso">
+    <div class="barra-progreso" id="barraScroll"></div>
+</div>
+
+<main>
+    <!-- 1. HERO Y PROMESA DE VALOR -->
+    <section class="seccion-hero">
+        <div class="hero-contenido oculto-scroll">
+            <h1 class="titulo-principal">Marketing Estratégico y <span class="resaltado-neon">Ciberseguridad</span></h1>
+            <p class="hero-texto">
+                Impulsamos marcas globales con estrategias innovadoras y desarrollo tecnológico de alto impacto. Escalamos tu negocio al siguiente nivel de manera orgánica y medible.
+            </p>
+        </div>
+        
+        <div class="hero-cta-box oculto-scroll">
+            <p class="cta-texto">Agenda tu auditoría estratégica hoy</p>
+            
+            <a href="{{ url_for('contacto') }}" class="animated-button">
+                <svg viewBox="0 0 24 24" class="arr-2" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
+                </svg>
+                <span class="tex">CONSULTAR</span>
+                <span class="circle"></span>
+                <svg viewBox="0 0 24 24" class="arr-1" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
+                </svg>
+            </a>
+        </div>
+    </section>
+
+    <!-- 2. ALIADOS COMERCIALES (Social Proof inmediato) -->
+    <section class="seccion-aliados oculto-scroll">
+        <h2 class="titulo-aliados">Ellos ya confían en nosotros</h2>
+        <div class="marquee-container">
+            <!-- PISTA 1 -->
+            <div class="marquee-track">
+                <div class="marquee-item"><img src="{{ url_for('static', filename='IMG/1.webp') }}" alt="Comunic Arce" loading="lazy"></div>
+                <div class="marquee-item"><img src="{{ url_for('static', filename='IMG/2.webp') }}" alt="Yugen Music" loading="lazy"></div>
+                <div class="marquee-item"><img src="{{ url_for('static', filename='IMG/3.webp') }}" alt="Yugen Films" loading="lazy"></div>
+                <div class="marquee-item"><img src="{{ url_for('static', filename='IMG/4.webp') }}" alt="Four Loko" loading="lazy"></div>
+                <div class="marquee-item"><img src="{{ url_for('static', filename='IMG/5.webp') }}" alt="Cerveza Andina" loading="lazy"></div>
+                <div class="marquee-item"><img src="{{ url_for('static', filename='IMG/6.webp') }}" alt="Aliado Urbano" loading="lazy"></div>
+                <div class="marquee-item"><img src="{{ url_for('static', filename='IMG/7.webp') }}" alt="La Crepe" loading="lazy"></div>
+                <div class="marquee-item"><img src="{{ url_for('static', filename='IMG/8.webp') }}" alt="El Rancho" loading="lazy"></div>
+                <div class="marquee-item"><img src="{{ url_for('static', filename='IMG/9.webp') }}" alt="Trafficantes" loading="lazy"></div>
+                <div class="marquee-item"><img src="{{ url_for('static', filename='IMG/10.webp') }}" alt="Shoko Barcelona" loading="lazy"></div>
+                <div class="marquee-item"><img src="{{ url_for('static', filename='IMG/11.webp') }}" alt="Cali Urbano" loading="lazy"></div>
+                <div class="marquee-item"><img src="{{ url_for('static', filename='IMG/12.webp') }}" alt="Bar Legendario" loading="lazy"></div>
+                <div class="marquee-item"><img src="{{ url_for('static', filename='IMG/13.webp') }}" alt="Latins Cars" loading="lazy"></div>
+                <div class="marquee-item"><img src="{{ url_for('static', filename='IMG/14.webp') }}" alt="La Ofii" loading="lazy"></div>
+                <div class="marquee-item"><img src="{{ url_for('static', filename='IMG/15.webp') }}" alt="White Lion" loading="lazy"></div>
+                <div class="marquee-item"><img src="{{ url_for('static', filename='IMG/16.webp') }}" alt="J-STAR" loading="lazy"></div>
+                <div class="marquee-item"><img src="{{ url_for('static', filename='IMG/17.webp') }}" alt="MCOP" loading="lazy"></div>
+                <div class="marquee-item"><img src="{{ url_for('static', filename='IMG/18.webp') }}" alt="Nova Solutions" loading="lazy"></div>
+            </div>
+            <!-- PISTA 2 (CLON PARA BUCLE) -->
+            <div class="marquee-track">
+                <div class="marquee-item"><img src="{{ url_for('static', filename='IMG/1.webp') }}" alt="Comunic Arce" loading="lazy"></div>
+                <div class="marquee-item"><img src="{{ url_for('static', filename='IMG/2.webp') }}" alt="Yugen Music" loading="lazy"></div>
+                <div class="marquee-item"><img src="{{ url_for('static', filename='IMG/3.webp') }}" alt="Yugen Films" loading="lazy"></div>
+                <div class="marquee-item"><img src="{{ url_for('static', filename='IMG/4.webp') }}" alt="Four Loko" loading="lazy"></div>
+                <div class="marquee-item"><img src="{{ url_for('static', filename='IMG/5.webp') }}" alt="Cerveza Andina" loading="lazy"></div>
+                <div class="marquee-item"><img src="{{ url_for('static', filename='IMG/6.webp') }}" alt="Aliado Urbano" loading="lazy"></div>
+                <div class="marquee-item"><img src="{{ url_for('static', filename='IMG/7.webp') }}" alt="La Crepe" loading="lazy"></div>
+                <div class="marquee-item"><img src="{{ url_for('static', filename='IMG/8.webp') }}" alt="El Rancho" loading="lazy"></div>
+                <div class="marquee-item"><img src="{{ url_for('static', filename='IMG/9.webp') }}" alt="Trafficantes" loading="lazy"></div>
+                <div class="marquee-item"><img src="{{ url_for('static', filename='IMG/10.webp') }}" alt="Shoko Barcelona" loading="lazy"></div>
+                <div class="marquee-item"><img src="{{ url_for('static', filename='IMG/11.webp') }}" alt="Cali Urbano" loading="lazy"></div>
+                <div class="marquee-item"><img src="{{ url_for('static', filename='IMG/12.webp') }}" alt="Bar Legendario" loading="lazy"></div>
+                <div class="marquee-item"><img src="{{ url_for('static', filename='IMG/13.webp') }}" alt="Latins Cars" loading="lazy"></div>
+                <div class="marquee-item"><img src="{{ url_for('static', filename='IMG/14.webp') }}" alt="La Ofii" loading="lazy"></div>
+                <div class="marquee-item"><img src="{{ url_for('static', filename='IMG/15.webp') }}" alt="White Lion" loading="lazy"></div>
+                <div class="marquee-item"><img src="{{ url_for('static', filename='IMG/16.webp') }}" alt="J-STAR" loading="lazy"></div>
+                <div class="marquee-item"><img src="{{ url_for('static', filename='IMG/17.webp') }}" alt="MCOP" loading="lazy"></div>
+                <div class="marquee-item"><img src="{{ url_for('static', filename='IMG/18.webp') }}" alt="Nova Solutions" loading="lazy"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. CIFRAS DE IMPACTO (Nueva sección) -->
+    <section class="seccion-cifras oculto-scroll">
+        <div class="cifra-item">
+            <h3>+4</h3>
+            <p>Años de Experiencia</p>
+        </div>
+        <div class="cifra-item">
+            <h3>+18</h3>
+            <p>Marcas Gestionadas</p>
+        </div>
+        <div class="cifra-item">
+            <h3>100%</h3>
+            <p>Entornos Seguros</p>
+        </div>
+    </section>
+
+    <!-- 4. METODOLOGÍA (Nueva sección) -->
+    <section class="seccion-metodologia">
+        <h2 class="titulo-seccion central oculto-scroll">Nuestra <span class="resaltado-neon">Metodología</span></h2>
+        
+        <div class="grid-metodologia">
+            <div class="card-paso oculto-scroll">
+                <span class="numero-paso">01</span>
+                <h3>Auditoría & Diagnóstico</h3>
+                <p>Analizamos la arquitectura actual de tu marca, identificamos vulnerabilidades de ciberseguridad y detectamos oportunidades críticas de crecimiento orgánico.</p>
+            </div>
+            
+            <div class="card-paso oculto-scroll">
+                <span class="numero-paso">02</span>
+                <h3>Estrategia Digital</h3>
+                <p>Diseñamos un plan de acción a medida, integrando embudos de conversión, desarrollo web y campañas publicitarias de alto impacto en redes sociales y Google.</p>
+            </div>
+            
+            <div class="card-paso oculto-scroll">
+                <span class="numero-paso">03</span>
+                <h3>Escalamiento & Control</h3>
+                <p>Ejecutamos, medimos y optimizamos en tiempo real. Protegemos tus activos digitales mientras escalamos tus resultados y forjamos alianzas estratégicas.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. MIS SERVICIOS (Renombrados con nombres de poder) -->
+    <section class="seccion-servicios">
+        <h2 class="titulo-seccion central oculto-scroll">Soluciones <span class="resaltado-neon">Integrales</span></h2>
+        <div class="contenedor-habilidades">
+            <article class="tarjeta-habilidad oculto-scroll">
+                <h3 class="titulo-habilidad">Growth Hacking & Alianzas</h3>
+                <p class="texto-habilidad">
+                    Mi experiencia dirigiendo alianzas estratégicas en plataformas como TikTok me permite conectar marcas con influencers clave, generando un crecimiento exponencial, tracción viral y una retención de audiencia superior.
+                </p>
+            </article>
+
+            <div class="imagen-central-celular">
+                <div class="foto-celular"></div>
+            </div>
+
+            <article class="tarjeta-habilidad oculto-scroll">
+                <h3 class="titulo-habilidad">Desarrollo Web & Ciberseguridad</h3>
+                <p class="texto-habilidad">
+                    Desarrollamos ecosistemas digitales blindados. Desde la creación de páginas web de alto rendimiento optimizadas para la conversión, hasta soluciones avanzadas de ciberseguridad corporativa y recuperación de accesos sociales.
+                </p>
+            </article>
+        </div>
+    </section>
+
+    <!-- 6. SOBRE MÍ -->
+    <section id="sobre_mi" class="seccion-sobre-mi oculto-scroll">
+        <div class="contenido-presentacion">
+            <h2 class="titulo-seccion">¿Quién soy?</h2>
+            <p class="descripcion-presentacion">
+                Mi nombre es Santiago Lozano, un estratega digital con más de 4 años de experiencia escalando proyectos y colaborando con reconocidas plataformas a nivel global. Me dedico a transformar visiones comerciales en arquitecturas digitales sólidas que aumentan las ventas, la autoridad y el alcance orgánico de mis clientes.
+            </p>
+        </div>
+        <div class="contenedor-visual-pc">
+            <div class="decoracion-visual"></div> 
+        </div> 
+    </section>
+
+    <!-- 7. PLATAFORMAS -->
+    <section class="seccion-plataformas oculto-scroll">
+        <header class="titulo-plataformas">
+            <h2>Gestión y optimización garantizada en:</h2>
+        </header>
+        <div class="contenedor-logos">
+            <ul class="lista-logos">
+                <li><img src="{{ url_for('static', filename='IMG/MET SF.webp') }}" alt="Logo de Meta" loading="lazy"></li>
+                <li><img src="{{ url_for('static', filename='IMG/MES SF.webp') }}" alt="Logo de Messenger" loading="lazy"></li>
+                <li><img src="{{ url_for('static', filename='IMG/INS-sf.webp') }}" alt="Logo de Instagram" loading="lazy"></li>
+                <li><img src="{{ url_for('static', filename='IMG/wasa.webp') }}" alt="Logo de WhatsApp" loading="lazy"></li>
+                <li><img src="{{ url_for('static', filename='IMG/yut.webp') }}" alt="Logo de YouTube" loading="lazy"></li>
+                <li><img src="{{ url_for('static', filename='IMG/TIK.webp') }}" alt="Logo de TikTok" loading="lazy"></li>
+                <li><img src="{{ url_for('static', filename='IMG/tiw.webp') }}" alt="Logo de X / Twitter" loading="lazy"></li>
+                <li><img src="{{ url_for('static', filename='IMG/v.webp') }}" alt="Logo de Valka" loading="lazy"></li>
+                <li><img src="{{ url_for('static', filename='IMG/ki.webp') }}" alt="Logo de Kick" loading="lazy"></li>
+                <li><img src="{{ url_for('static', filename='IMG/yum.webp') }}" alt="Logo de YouTube Music" loading="lazy"></li>
+                <li><img src="{{ url_for('static', filename='IMG/spo.webp') }}" alt="Logo de Spotify" loading="lazy"></li> 
+                <li><img src="{{ url_for('static', filename='IMG/ama.webp') }}" alt="Logo de Amazon" loading="lazy"></li> 
+                <li><img src="{{ url_for('static', filename='IMG/son.webp') }}" alt="Logo de Soundcloud" loading="lazy"></li> 
+                <li><img src="{{ url_for('static', filename='IMG/GOO SF.webp') }}" alt="Logo de Google" loading="lazy"></li>
+            </ul>
+        </div>
+    </section>
+</main>
+
+<a href="https://wa.me/573225830217?text=Hola%20Santiago,%20vi%20tu%20portafolio%20y%20quiero%20cotizar%20tus%20servicios" class="boton-flotante-wsp" target="_blank" rel="noopener noreferrer">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+</a>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        window.addEventListener('scroll', () => {
+            let scrollTop = document.documentElement.scrollTop;
+            let scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            let scrollPrcnt = (scrollTop / scrollHeight) * 100;
+            
+            const barraScroll = document.getElementById("barraScroll");
+            if(barraScroll) {
+                barraScroll.style.width = scrollPrcnt + "%";
+            }
+        });
+    });
+</script>
+{% endblock %}

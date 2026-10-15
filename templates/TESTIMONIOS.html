@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+
+{% block title %}Casos de Éxito | Santiago Lozano{% endblock %}
+{% block body_class %}pagina-testimonios{% endblock %}
+
+{% block content %}
+<section class="seccion-hero-testimonios oculto-scroll">
+    <h1 class="titulo-pagina">Resultados que <br><span class="resaltado-neon">hablan por sí solos</span></h1>
+    <p class="subtitulo-contacto">El impacto de mis estrategias, reflejado en la voz de las marcas y directores que ya escalaron al siguiente nivel.</p>
+</section>
+
+<main class="contenedor-testimonios">
+    <div class="grid-testimonios">
+        
+        <div class="card-testimonio oculto-scroll">
+            <div class="estrellas">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            </div>
+            <p class="texto-testimonio">"Agradezco enormemente tus servicios. El impacto en mi proyecto ha sido evidente desde el primer mes y el trato súper profesional en todo momento. Una estructura de seguridad y marketing impecable."</p>
+            <div class="cliente-perfil">
+                <div class="avatar-cliente">MP</div>
+                <div class="info-cliente">
+                    <h4>Mariana Pérez <i class="fa-solid fa-circle-check verificado-icono" title="Cliente Verificado"></i></h4>
+                    <span>Directora de Proyecto</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="card-testimonio oculto-scroll">
+            <div class="estrellas">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            </div>
+            <p class="texto-testimonio">"Me encanta tu trabajo. Has logrado captar perfectamente la esencia de lo que necesitábamos. Los resultados técnicos y orgánicos han superado mis expectativas por completo."</p>
+            <div class="cliente-perfil">
+                <div class="avatar-cliente">AG</div>
+                <div class="info-cliente">
+                    <h4>Alejandro Gómez <i class="fa-solid fa-circle-check verificado-icono" title="Cliente Verificado"></i></h4>
+                    <span>CEO & Fundador</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="card-testimonio oculto-scroll">
+            <div class="estrellas">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            </div>
+            <p class="texto-testimonio">"Quiero trabajar de la mano en futuros proyectos. La visión estratégica, el growth hacking y el profundo conocimiento técnico en ciberseguridad que aportas son, literalmente, de otro nivel."</p>
+            <div class="cliente-perfil">
+                <div class="avatar-cliente">CM</div>
+                <div class="info-cliente">
+                    <h4>Carlos Méndez <i class="fa-solid fa-circle-check verificado-icono" title="Cliente Verificado"></i></h4>
+                    <span>Partner Estratégico</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="card-testimonio oculto-scroll">
+            <div class="estrellas">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            </div>
+            <p class="texto-testimonio">"Trabajar con Santiago ha sido la mejor decisión del año. Sentimos una seguridad absoluta en cada paso de nuestra campaña y los números de conversión final hablan por sí solos."</p>
+            <div class="cliente-perfil">
+                <div class="avatar-cliente">MF</div>
+                <div class="info-cliente">
+                    <h4>María Fuentez <i class="fa-solid fa-circle-check verificado-icono" title="Cliente Verificado"></i></h4>
+                    <span>Directora de Marca</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- BANNER DE CIERRE -->
+    <div class="banner-servicios oculto-scroll" style="margin-top: 100px;">
+        <h2>Sé nuestro próximo caso de éxito</h2>
+        <p>No dejes la presencia y seguridad de tu marca al azar. Estructuremos un plan a medida para ti.</p>
+        <a href="{{ url_for('contacto') }}" class="animated-button">
+            <span class="tex">Contactar a Santiago</span>
+            <span class="circle"></span>
+            <svg viewBox="0 0 24 24" class="arr-2" xmlns="http://www.w3.org/2000/svg">
+                <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
+            </svg>
+        </a>
+    </div>
+</main>
+{% endblock %}

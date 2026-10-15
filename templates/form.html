@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block title %}Formulario de Petición | Santiago Lozano{% endblock %}
+{% block body_class %}pagina-formulario{% endblock %}
+
+{% block content %}
+<main class="seccion-formulario oculto-scroll">
+    <div class="contenedor-form">
+        <h1 class="titulo-form">Encuesta de <span class="resaltado-neon">Petición</span></h1>
+        <p class="subtitulo-form">Déjame tus datos y me pondré en contacto contigo en menos de 24 horas.</p>
+        
+        <div id="flash-messages"></div>
+        
+        <form action="{{ url_for('send_email') }}" method="POST" id="contact-form" class="formulario-premium">
+            <div class="grupo-input">
+                <input type="text" name="nombre" id="nombre" placeholder="Tu Nombre Completo" required>
+            </div>
+            
+            <div class="grupo-input">
+                <input type="email" name="correo" id="correo" placeholder="Tu Correo Electrónico" required>
+            </div>
+            
+            <div class="grupo-input">
+                <textarea name="mensaje" id="mensaje" placeholder="Cuéntame sobre tu proyecto o necesidad..." rows="5" required></textarea>
+            </div>
+            
+            <button type="submit" class="animated-button boton-enviar">
+                <span class="tex">Enviar Mensaje</span>
+                <span class="circle"></span>
+                <svg viewBox="0 0 24 24" class="arr-2" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
+                </svg>
+            </button>
+        </form>
+    </div>
+</main>
+{% endblock %}
+
+{% block scripts %}
+    <script src="{{ url_for('static', filename='app.js') }}"></script>
+{% endblock %}

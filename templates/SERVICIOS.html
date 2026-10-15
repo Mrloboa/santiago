@@ -1,0 +1,97 @@
+{% extends "base.html" %}
+
+{% block title %}Servicios | Santiago Lozano{% endblock %}
+{% block body_class %}pagina-servicios{% endblock %}
+
+{% block content %}
+<section class="seccion-hero-servicios oculto-scroll">
+    <h1 class="titulo-pagina">Estrategias de <span class="resaltado-neon">Alto Impacto</span><br> a nivel global</h1>
+    <p class="subtitulo-contacto">Soluciones tecnológicas y de marketing diseñadas para escalar tu marca de forma orgánica, medible y segura.</p>
+</section>
+
+<!-- BLOQUE 1: MARKETING Y GROWTH HACKING -->
+<main class="contenedor-servicios">
+    <div class="grid-servicios">
+        
+        <div class="card-servicio oculto-scroll">
+            <i class="fa-solid fa-bullhorn icono-servicio"></i>
+            <h3>Publicidad en Meta</h3>
+            <p>Diseñamos anuncios quirúrgicamente segmentados en Facebook e Instagram para maximizar conversiones, escalar audiencias y reducir el costo de adquisición.</p>
+            <a href="{{ url_for('contacto') }}" class="micro-cta">Cotizar Estrategia <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+
+        <div class="card-servicio oculto-scroll">
+            <i class="fa-brands fa-google icono-servicio"></i>
+            <h3>Publicidad en Google</h3>
+            <p>Dominamos la intención de búsqueda. Campañas en Google Ads de alto rendimiento técnico para interceptar clientes exactos en el momento de compra.</p>
+            <a href="{{ url_for('contacto') }}" class="micro-cta">Cotizar Estrategia <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+
+        <div class="card-servicio oculto-scroll">
+            <i class="fa-brands fa-tiktok icono-servicio"></i>
+            <h3>Alianzas en TikTok</h3>
+            <p>Ingeniería de viralidad. Integramos tu marca con influencers clave y tendencias orgánicas para desatar un crecimiento masivo y autoridad instantánea.</p>
+            <a href="{{ url_for('contacto') }}" class="micro-cta">Cotizar Estrategia <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+
+        <div class="card-servicio oculto-scroll">
+            <i class="fa-solid fa-chart-line icono-servicio"></i>
+            <h3>Gestión Social Media</h3>
+            <p>No publicamos por publicar. Construimos arquitecturas de contenido en redes sociales diseñadas para retener atención, educar y vender ininterrumpidamente.</p>
+            <a href="{{ url_for('contacto') }}" class="micro-cta">Cotizar Estrategia <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+
+        <div class="card-servicio oculto-scroll">
+            <i class="fa-solid fa-chess-knight icono-servicio"></i>
+            <h3>Consultoría Digital</h3>
+            <p>Asesoría táctica directa para empresas. Detectamos fugas de capital, optimizamos tus embudos actuales y trazamos una ruta de escalamiento a 12 meses.</p>
+            <a href="{{ url_for('contacto') }}" class="micro-cta">Agendar Asesoría <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+
+    </div>
+</main>
+
+<!-- BLOQUE 2: ECOSISTEMA TECNOLÓGICO -->
+<section class="contenedor-servicios tech-services">
+    <h2 class="titulo-seccion-tech oculto-scroll">Ecosistema <span class="resaltado-neon">Tecnológico Seguro</span></h2>
+    
+    <div class="grid-servicios">
+        
+        <div class="card-servicio tech-card oculto-scroll">
+            <i class="fa-solid fa-shield-halved icono-servicio"></i>
+            <h3>Ciberseguridad</h3>
+            <p>Auditoría de vulnerabilidades, blindaje de activos digitales y prevención de brechas de datos. Operamos entornos corporativos 100% seguros y resilientes.</p>
+            <a href="{{ url_for('contacto') }}" class="micro-cta">Proteger mi Marca <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+
+        <div class="card-servicio tech-card oculto-scroll">
+            <i class="fa-solid fa-code icono-servicio"></i>
+            <h3>Desarrollo Web</h3>
+            <p>Programación de plataformas y landing pages de carga ultrarrápida, optimizadas para motores de búsqueda (SEO) y diseñadas estrictamente para la conversión.</p>
+            <a href="{{ url_for('contacto') }}" class="micro-cta">Desarrollar Proyecto <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+
+        <div class="card-servicio tech-card oculto-scroll">
+            <i class="fa-solid fa-unlock-keyhole icono-servicio"></i>
+            <h3>Recuperación IG</h3>
+            <p>Gestión de crisis. Restauramos accesos a cuentas hackeadas, bloqueadas o comprometidas mediante protocolos de seguridad y validación de identidad.</p>
+            <a href="{{ url_for('contacto') }}" class="micro-cta">Recuperar Cuenta <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+
+    </div>
+
+    <!-- BANNER DE CIERRE: LLAMADO A LA ACCIÓN DEFINITIVO -->
+    <div class="banner-servicios oculto-scroll">
+        <h2>¿No estás seguro por dónde empezar?</h2>
+        <p>Realizamos un diagnóstico integral de tu ecosistema actual y te indicamos la ruta más rápida para aumentar tus ingresos.</p>
+        <a href="{{ url_for('contacto') }}" class="animated-button">
+            <span class="tex">Agendar Diagnóstico Gratuito</span>
+            <span class="circle"></span>
+            <svg viewBox="0 0 24 24" class="arr-2" xmlns="http://www.w3.org/2000/svg">
+                <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
+            </svg>
+        </a>
+    </div>
+
+</section>
+{% endblock %}

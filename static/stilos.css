@@ -1,0 +1,1357 @@
+/* =========================================
+   0. PALETA DE COLORES (CYBER NEÓN)
+   ========================================= */
+:root {
+  --fondo-principal: #000000;
+  --fondo-secundario: #0A0A0A;
+  --texto-principal: #FFFFFF;
+  --texto-secundario: #888888;
+  --acento-primario: #39FF14;
+  --acento-hover: #2ECC10;
+  --borde-sutil: rgba(255, 255, 255, 0.15);
+}
+
+/* =========================================
+   1. RESET Y ESTILOS GLOBALES
+   ========================================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--fondo-principal);
+  color: var(--texto-principal);
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+  color: var(--texto-principal);
+}
+
+/* =========================================
+   2. HEADER Y NAVEGACIÓN
+   ========================================= */
+.cabecera-principal {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+  max-width: 1200px;
+  margin: 2% auto 0 auto;
+  flex-wrap: wrap;
+  gap: 20px;
+  transition: all 0.4s ease;
+}
+
+.logo-contenedor {
+  width: 150px;
+  height: 150px;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.logo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.navbar {
+  background-color: var(--fondo-secundario);
+  padding: 10px 20px;
+  border-radius: 8px;
+  flex-grow: 1;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.navbar ul {
+  display: flex;
+  list-style-type: none;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.navbar a {
+  font-family: 'Cambria', serif;
+  font-size: 18px;
+  text-transform: uppercase;
+  transition: color 0.3s ease-in-out;
+  position: relative;
+}
+
+.navbar a:hover, .navbar a.activo {
+  color: var(--acento-primario);
+}
+
+.navbar a::after {
+  content: "";
+  display: block;
+  border-bottom: 3px solid var(--texto-principal);
+  width: 100%;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.5s ease;
+  margin-top: 5px;
+}
+
+.navbar a:hover::after, .navbar a.activo::after {
+  transform: scaleX(1);
+  transform-origin: left;
+  border-color: var(--acento-primario);
+}
+
+/* =========================================
+   3. SECCIÓN 1: BIENVENIDA (HERO)
+   ========================================= */
+.seccion-hero {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 90%;
+  max-width: 1200px;
+  margin: 5% auto;
+  gap: 40px;
+}
+
+.hero-contenido {
+  flex: 1;
+  min-width: 300px;
+}
+
+.titulo-principal {
+  font-size: 4rem;
+  margin-bottom: 20px;
+  color: var(--texto-principal);
+}
+
+.hero-texto {
+  font-size: 1.5rem;
+  line-height: 1.6;
+  color: var(--texto-secundario);
+}
+
+.hero-cta-box {
+  flex: 1;
+  min-width: 300px;
+  background-image: url("IMG/FONDO.webp");
+  background-size: cover;
+  background-position: center;
+  padding: 50px;
+  border-radius: 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  min-height: 400px;
+}
+
+.cta-texto {
+  text-transform: uppercase;
+  font-size: 1.2rem;
+  background-color: rgba(18, 18, 18, 0.85);
+  color: var(--texto-principal);
+  padding: 15px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+/* =========================================
+   4. BOTONES ANIMADOS
+   ========================================= */
+.animated-button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: 16px 36px;
+  border: 4px solid transparent;
+  font-size: 16px;
+  background-color: var(--fondo-secundario); 
+  border-radius: 100px;
+  font-weight: 600;
+  color: var(--acento-primario);
+  box-shadow: 0 0 0 2px var(--fondo-secundario);
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+  text-decoration: none;
+}
+
+.animated-button svg {
+  position: absolute;
+  width: 24px;
+  fill: var(--acento-primario);
+  z-index: 9;
+  transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.animated-button .arr-1 { right: 16px; }
+.animated-button .arr-2 { left: -25%; }
+
+.animated-button .circle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 20px;
+  height: 20px;
+  background-color: var(--acento-hover);
+  border-radius: 50%;
+  opacity: 0;
+  transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.animated-button .tex {
+  position: relative;
+  z-index: 1;
+  transform: translateX(-12px);
+  transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.animated-button:hover {
+  box-shadow: 0 0 0 12px transparent;
+  color: var(--fondo-principal);
+  border-radius: 12px;
+}
+
+.animated-button:hover .arr-1 { right: -25%; }
+.animated-button:hover .arr-2 { left: 16px; }
+.animated-button:hover .tex { transform: translateX(12px); }
+.animated-button:hover svg { fill: var(--fondo-principal); }
+.animated-button:active { scale: 0.95; box-shadow: 0 0 0 4px var(--acento-hover); }
+.animated-button:hover .circle { width: 220px; height: 220px; opacity: 1; }
+
+/* =========================================
+   5. PORTAFOLIO Y SOBRE MÍ
+   ========================================= */
+.seccion-sobre-mi {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  width: 90%;
+  max-width: 1200px;
+  margin: 5% auto;
+  gap: 30px;
+}
+
+.contenido-presentacion {
+  flex: 1;
+  min-width: 300px;
+  background-image: linear-gradient(rgba(30, 30, 30, 0.7), rgba(30, 30, 30, 0.7)), url("IMG/logo\ so.webp");
+  background-size: cover;
+  padding: 40px;
+  border-radius: 15px;
+}
+
+.titulo-seccion {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  color: var(--texto-principal);
+}
+
+.titulo-seccion.central {
+  text-align: center;
+  width: 100%;
+  font-size: 3rem;
+  margin-bottom: 40px;
+}
+
+.descripcion-presentacion {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  color: var(--texto-secundario);
+}
+
+.contenedor-visual-pc {
+  flex: 1;
+  width: 100%;
+  min-width: 280px;
+  max-width: 600px;
+  aspect-ratio: 16 / 10; 
+  background-image: url("IMG/pc.webp"); 
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: relative; 
+  margin: 0 auto; 
+}
+
+.decoracion-visual {
+  background-image: url("IMG/FOT.webp"); 
+  background-size: cover;
+  background-position: center ;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 77%;   
+  height: 75%;
+  transform: translate(-50%, -56%);
+  border-radius: 4px; 
+  z-index: 2; 
+}
+
+/* =========================================
+   6. PLATAFORMAS (GRID)
+   ========================================= */
+.seccion-plataformas {
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.titulo-plataformas h2 {
+  font-size: 2rem;
+  margin-bottom: 40px;
+}
+
+.lista-logos {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 25px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.lista-logos li {
+  background: rgba(255, 255, 255, 0.03); 
+  border: 1px solid rgba(255, 255, 255, 0.05); 
+  border-radius: 15px;
+  padding: 25px 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.4s ease;
+  backdrop-filter: blur(5px);
+}
+
+.lista-logos li:hover {
+  border-color: var(--acento-primario); 
+  box-shadow: 0 5px 20px rgba(186, 255, 41, 0.15); 
+  transform: translateY(-5px); 
+  background: rgba(255, 255, 255, 0.08); 
+}
+
+.lista-logos img {
+  height: 60px;
+  width: auto;
+  object-fit: contain;
+  filter: grayscale(80%) opacity(0.7); 
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.lista-logos img:hover {
+  transform: scale(1.15);
+  filter: grayscale(0%) opacity(1); 
+}
+
+/* =========================================
+   7. SERVICIOS (TARJETAS 3D Y NEÓN)
+   ========================================= */
+.seccion-servicios {
+  width: 90%;
+  max-width: 1200px;
+  margin: 5% auto;
+}
+
+.contenedor-habilidades {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.tarjeta-habilidad {
+  flex: 1;
+  min-width: 300px;
+  background-image: linear-gradient(rgba(30, 30, 30, 0.8), rgba(30, 30, 30, 0.8)), url("IMG/tabla1.webp");
+  background-size: cover;
+  padding: 40px 30px;
+  border-radius: 15px;
+  transition: transform 0.4s ease, box-shadow 0.4s ease, border 0.4s ease;
+  border: 1px solid var(--borde-sutil);
+}
+
+.tarjeta-habilidad:hover {
+  transform: translateY(-15px);
+  box-shadow: 0 15px 30px rgba(186, 255, 41, 0.15);
+  border: 1px solid rgba(186, 255, 41, 0.5);
+  background-image: linear-gradient(rgba(18, 18, 18, 0.4), rgba(18, 18, 18, 0.4)), url("IMG/tabla1.webp");
+}
+
+.titulo-habilidad {
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+  color: var(--texto-principal);
+}
+
+.texto-habilidad {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: var(--texto-secundario);
+}
+
+.imagen-central-celular {
+  flex: 1;
+  min-width: 250px;
+  background-image: url("IMG/celu.webp"); 
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  min-height: 400px;
+  filter: drop-shadow(0px 0px 30px rgba(57, 255, 20, 0.15));
+  transition: transform 0.4s ease, filter 0.4s ease;
+}
+
+.imagen-central-celular:hover {
+  transform: translateY(-10px);
+  filter: drop-shadow(0px 10px 40px rgba(57, 255, 20, 0.3)); 
+}
+
+.foto-celular {
+  background-image: url("IMG/green.webp"); 
+  background-size: cover;
+  background-position: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 47%;   
+  height: 47%;  
+  transform: translate(-50%, -50%); 
+  border-radius: 12px; 
+  z-index: 2;
+}
+
+/* =========================================
+   8. FOOTER ULTRA PREMIUM
+   ========================================= */
+.pie-de-pagina {
+  margin-top: 100px;
+  background-color: #030303; 
+  border-top: 1px solid rgba(57, 255, 20, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.pie-de-pagina::before {
+  content: "";
+  position: absolute;
+  top: -150px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 800px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(57, 255, 20, 0.15) 0%, transparent 70%);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.footer-cta-final { 
+    text-align: center; 
+    padding: 80px 20px; 
+    position: relative;
+    z-index: 1;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.footer-badge {
+    display: inline-block;
+    padding: 6px 16px;
+    background: rgba(57, 255, 20, 0.1);
+    border: 1px solid var(--acento-primario);
+    color: var(--acento-primario);
+    border-radius: 50px;
+    font-size: 0.85rem;
+    margin-bottom: 25px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.footer-cta-final h2 { 
+    color: var(--texto-principal); 
+    font-size: 2.8rem; 
+    margin-bottom: 20px; 
+    text-transform: uppercase;
+}
+
+.footer-cta-final p {
+    color: var(--texto-secundario);
+    font-size: 1.2rem;
+    margin-bottom: 40px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.container-footer {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1.5fr;
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 60px 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.profile-footer { display: flex; flex-direction: column; gap: 15px; }
+.logo-footer { width: 160px; margin-bottom: 10px; border-radius: 8px; }
+
+.footer-bio { 
+    color: var(--texto-secundario); 
+    font-size: 0.95rem; 
+    line-height: 1.6; 
+    max-width: 90%;
+}
+
+.columna-links h3 { 
+    color: var(--texto-principal); 
+    margin-bottom: 20px; 
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.columna-links ul { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 12px;}
+.columna-links a { color: var(--texto-secundario); text-decoration: none; transition: 0.3s; display: inline-block; font-size: 0.95rem;}
+.columna-links a:hover { color: var(--acento-primario); transform: translateX(5px); }
+
+/* REDES SOCIALES EN EL FOOTER (FONTAWESOME) */
+/* =========================================
+   REDES SOCIALES EN EL FOOTER (FONTAWESOME)
+   ========================================= */
+.redes-footer { 
+    display: flex; 
+    gap: 15px; 
+    margin-top: 10px; 
+}
+
+.social-icon { 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    width: 45px; /* Mantenemos el tamaño de la "caja invisible" para que sea fácil tocarlos en celular */
+    height: 45px; 
+    background: transparent; /* Quitamos el fondo oscuro */
+    border: none; /* Quitamos el círculo gris */
+    transition: all 0.4s ease; 
+    text-decoration: none;
+}
+
+.social-icon i {
+    color: var(--texto-principal); /* Blanco por defecto */
+    font-size: 26px; /* Los hacemos un poco más grandes porque ya no tienen marco */
+    margin: 0; 
+    padding: 0;
+    transition: all 0.4s ease;
+}
+
+/* Compensación óptica para WhatsApp */
+.social-icon .fa-whatsapp {
+    font-size: 28px; 
+}
+
+/* Efecto al pasar el cursor (Sin círculos, solo salta el ícono) */
+.social-icon:hover { 
+    transform: translateY(-5px); 
+}
+
+.social-icon:hover i {
+    color: var(--acento-primario); /* Se pinta de verde neón */
+    filter: drop-shadow(0 0 10px var(--acento-primario)); /* Resplandor intenso directo del ícono */
+}
+
+.copyright { 
+    text-align: center; 
+    padding: 25px 20px; 
+    font-size: 0.85rem; 
+    color: #555; 
+    border-top: 1px solid #1a1a1a; 
+    background: #000;
+}
+
+.copyright span { color: var(--acento-primario); }
+
+/* =========================================
+   9. BOTÓN WHATSAPP FLOTANTE ANIMADO
+   ========================================= */
+.boton-flotante-wsp {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 60px;
+  height: 60px;
+  background-color: #25D366;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s ease;
+  z-index: 1000;
+  animation: pulso-wsp 2s infinite; 
+}
+
+.boton-flotante-wsp:hover {
+  transform: scale(1.15);
+  animation: none;
+}
+
+.boton-flotante-wsp img {
+  width: 35px;
+  height: 35px;
+}
+
+@keyframes pulso-wsp {
+  0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+  70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+}
+
+/* =========================================
+   11. EFECTOS DINÁMICOS Y ANIMACIONES
+   ========================================= */
+.oculto-scroll {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  will-change: opacity, transform;
+}
+
+.mostrar-scroll {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.cabecera-fija {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding: 10px 5%;
+  background-color: rgba(18, 18, 18, 0.95);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.8);
+  z-index: 2000;
+  transition: all 0.4s ease;
+  backdrop-filter: blur(5px);
+}
+
+body.menu-fijado {
+  padding-top: 150px; 
+}
+
+/* =========================================
+   12. BARRA DE PROGRESO DE SCROLL
+   ========================================= */
+.contenedor-progreso {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: transparent;
+  z-index: 9999; 
+}
+
+.barra-progreso {
+  height: 100%;
+  background: var(--acento-primario); 
+  width: 0%; 
+  box-shadow: 0 0 10px var(--acento-primario); 
+}
+
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: var(--fondo-principal); }
+::-webkit-scrollbar-thumb { background: var(--acento-primario); border-radius: 10px; }
+::-webkit-scrollbar-thumb:hover { background: var(--acento-hover); }
+
+/* ==========================================================
+   ESTILOS PÁGINAS INDIVIDUALES (Contacto, Empresas, Servicios, Testimonios)
+   ========================================================== */
+.seccion-cta-hero, .seccion-formulario {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh; 
+  text-align: center;
+  padding: 120px 20px 60px;
+}
+
+.cta-contenido {
+  max-width: 900px;
+  background: radial-gradient(circle at center, rgba(186, 255, 41, 0.03) 0%, transparent 70%);
+  padding: 80px 40px;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.03);
+  transition: transform 0.6s ease;
+}
+
+.titulo-contacto, .titulo-pagina, .titulo-form {
+  font-size: 3.5rem;
+  color: var(--texto-principal);
+  line-height: 1.1;
+  margin-bottom: 25px;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.resaltado-neon {
+  color: var(--acento-primario);
+  text-shadow: 0 0 20px rgba(186, 255, 41, 0.3);
+  display: inline-block;
+}
+
+.subtitulo-contacto, .subtitulo-form {
+  font-size: 1.3rem;
+  color: var(--texto-secundario);
+  margin-bottom: 50px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
+}
+
+/* Formularios */
+.contenedor-form {
+  background: #080808;
+  border: 1px solid #1a1a1a;
+  border-radius: 20px;
+  padding: 50px 40px;
+  width: 100%;
+  max-width: 600px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+  text-align: center;
+}
+
+.formulario-premium { display: flex; flex-direction: column; gap: 20px; }
+.grupo-input { width: 100%; }
+.formulario-premium input, .formulario-premium textarea {
+  width: 100%; padding: 15px 20px; background-color: #111; border: 1px solid #222;
+  border-radius: 10px; color: #fff; font-size: 1rem; font-family: inherit;
+  transition: all 0.3s ease; box-sizing: border-box;
+}
+.formulario-premium textarea { resize: vertical; }
+.formulario-premium input:focus, .formulario-premium textarea:focus {
+  outline: none; border-color: var(--acento-primario);
+  box-shadow: 0 0 15px rgba(186, 255, 41, 0.2); background-color: #0a0a0a;
+}
+.boton-enviar { width: 100%; margin-top: 10px; justify-content: center; cursor: pointer; border: none; }
+
+/* Empresas */
+.seccion-empresas { padding: 100px 20px; text-align: center; }
+.contenedor-carrusel { max-width: 800px; margin: 0 auto; overflow: hidden; border-radius: 20px; border: 1px solid rgba(186, 255, 41, 0.2); position: relative; background: #000; min-height: 450px; }
+.carousel { display: flex; transition: transform 0.5s ease-in-out; width: 100%; height: 100%; }
+.carousel-item { min-width: 100%; background: #111; box-sizing: border-box; }
+.carousel-item img { width: 100%; height: 350px; object-fit: cover; }
+.carousel-text { padding: 20px; color: var(--texto-secundario); }
+.nav-btn { position: absolute; top: 40%; transform: translateY(-50%); background: var(--acento-primario); color: #000; border: none; padding: 10px 15px; cursor: pointer; font-size: 20px; border-radius: 50%; z-index: 10; transition: all 0.3s; }
+.nav-btn:hover { background: #fff; box-shadow: 0 0 15px var(--acento-primario); }
+.prev { left: 15px; } .next { right: 15px; }
+
+/* Servicios y Testimonios */
+/* =========================================
+   DISEÑO DE TESTIMONIOS (WALL OF LOVE)
+   ========================================= */
+.grid-testimonios { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
+    gap: 40px; 
+}
+
+.card-testimonio { 
+    background: linear-gradient(145deg, rgba(20, 20, 20, 0.7) 0%, rgba(5, 5, 5, 0.9) 100%);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.05); 
+    border-radius: 24px; 
+    padding: 40px; 
+    transition: all 0.5s ease; 
+    position: relative; 
+    overflow: hidden; 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: space-between;
+    z-index: 1;
+}
+
+/* Marca de agua (Comilla gigante en el fondo) */
+.card-testimonio::before {
+    content: '\f10e'; /* Código de FontAwesome para comilla derecha */
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    position: absolute;
+    top: -20px;
+    right: 10px;
+    font-size: 10rem;
+    color: rgba(255, 255, 255, 0.02);
+    z-index: -1;
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.card-testimonio:hover { 
+    transform: translateY(-10px); 
+    border-color: rgba(57, 255, 20, 0.3); 
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8), 0 0 20px rgba(57, 255, 20, 0.05); 
+}
+
+.card-testimonio:hover::before {
+    color: rgba(57, 255, 20, 0.04);
+    transform: scale(1.1) rotate(-10deg);
+}
+
+/* Detalles de las estrellas y el texto */
+.estrellas { 
+    color: var(--acento-primario); 
+    font-size: 1.1rem; 
+    margin-bottom: 25px; 
+    letter-spacing: 3px; 
+    filter: drop-shadow(0 0 5px rgba(57, 255, 20, 0.4));
+}
+
+.texto-testimonio { 
+    color: var(--texto-principal); 
+    font-size: 1.1rem; 
+    line-height: 1.8; 
+    font-style: italic; 
+    margin-bottom: 40px; 
+    flex-grow: 1; 
+    font-weight: 300;
+}
+
+/* Perfil del Cliente Premium */
+.cliente-perfil { 
+    display: flex; 
+    align-items: center; 
+    gap: 15px; 
+    border-top: 1px solid rgba(255, 255, 255, 0.08); 
+    padding-top: 25px; 
+}
+
+.avatar-cliente { 
+    width: 55px; 
+    height: 55px; 
+    background: linear-gradient(135deg, #111, #000); 
+    border: 2px solid var(--acento-primario); 
+    color: var(--texto-principal); 
+    border-radius: 50%; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    font-weight: 700; 
+    font-size: 1.2rem;
+    box-shadow: 0 0 10px rgba(57, 255, 20, 0.2);
+}
+
+.info-cliente h4 { 
+    color: var(--texto-principal); 
+    font-size: 1.1rem; 
+    margin: 0 0 5px 0; 
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.verificado-icono {
+    color: #1DA1F2; /* Azul tipo Twitter/Meta de verificado */
+    font-size: 0.9rem;
+}
+
+.info-cliente span { 
+    color: var(--acento-primario); 
+    font-size: 0.85rem; 
+    text-transform: uppercase; 
+    letter-spacing: 1px; 
+    font-weight: 600;
+}
+/* =========================================
+   DISEÑO DE SERVICIOS (GLASSMORPHISM Y NEÓN)
+   ========================================= */
+.card-servicio {
+    background: rgba(15, 15, 15, 0.6);
+    backdrop-filter: blur(12px); /* Efecto cristal */
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    padding: 40px 30px;
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    z-index: 1;
+}
+
+/* Foco de luz interna invisible hasta que pasas el mouse */
+.card-servicio::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(57, 255, 20, 0.08) 0%, transparent 60%);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    z-index: -1;
+}
+
+.card-servicio:hover {
+    transform: translateY(-12px);
+    border-color: rgba(57, 255, 20, 0.4);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6), 0 0 20px rgba(57, 255, 20, 0.15);
+}
+
+.card-servicio:hover::before {
+    opacity: 1;
+}
+
+/* Íconos de FontAwesome en las tarjetas */
+.icono-servicio {
+    font-size: 2.8rem;
+    color: var(--acento-primario);
+    margin-bottom: 25px;
+    filter: drop-shadow(0 0 10px rgba(57, 255, 20, 0.3));
+    transition: transform 0.4s ease;
+}
+
+.card-servicio:hover .icono-servicio {
+    transform: scale(1.15) rotate(-5deg);
+}
+
+.card-servicio h3 {
+    color: var(--texto-principal);
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.card-servicio p {
+    color: var(--texto-secundario);
+    line-height: 1.7;
+    font-size: 0.95rem;
+    margin-bottom: 30px;
+    flex-grow: 1;
+}
+
+/* Enlace de Micro-Conversión */
+.micro-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--texto-principal);
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    margin-top: auto;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    padding-top: 20px;
+}
+
+.micro-cta i {
+    color: var(--acento-primario);
+    transition: transform 0.3s ease;
+}
+
+.micro-cta:hover {
+    color: var(--acento-primario);
+}
+
+.micro-cta:hover i {
+    transform: translateX(8px);
+}
+
+/* Banner de Cierre en Servicios */
+.banner-servicios {
+    background: linear-gradient(135deg, #0a0a0a 0%, #050505 100%);
+    border: 1px solid rgba(57, 255, 20, 0.2);
+    border-radius: 20px;
+    padding: 70px 40px;
+    text-align: center;
+    max-width: 1000px;
+    margin: 80px auto 0;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+}
+
+.banner-servicios h2 {
+    font-size: 2.5rem;
+    color: var(--texto-principal);
+    margin-bottom: 15px;
+}
+
+.banner-servicios p {
+    color: var(--texto-secundario);
+    font-size: 1.1rem;
+    margin-bottom: 40px;
+}
+
+.estrellas { color: var(--acento-primario); font-size: 1.1rem; margin-bottom: 20px; letter-spacing: 2px; }
+.texto-testimonio { color: var(--texto-secundario); font-size: 1.05rem; line-height: 1.8; font-style: italic; margin-bottom: 30px; flex-grow: 1; }
+.cliente-perfil { display: flex; align-items: center; gap: 15px; border-top: 1px solid #1a1a1a; padding-top: 20px; }
+.avatar-cliente { width: 50px; height: 50px; background-color: #111; border: 1px solid var(--acento-primario); color: var(--acento-primario); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.1rem; }
+.info-cliente h4 { color: var(--texto-principal); font-size: 1.1rem; margin: 0 0 5px 0; text-transform: capitalize; }
+.info-cliente span { color: #666; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; }
+
+/* =========================================
+   NUEVA SECCIÓN: ALIADOS (MARQUEE INFINITO)
+   ========================================= */
+.seccion-aliados {
+    padding: 80px 0 40px 0;
+    background: var(--fondo-principal);
+    overflow: hidden;
+    position: relative;
+}
+
+.titulo-aliados {
+    text-align: center;
+    font-size: 1.5rem;
+    margin-bottom: 40px;
+    color: var(--texto-secundario);
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
+
+.seccion-aliados::before,
+.seccion-aliados::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 150px;
+    height: 100%;
+    z-index: 2;
+}
+.seccion-aliados::before {
+    left: 0;
+    background: linear-gradient(to right, var(--fondo-principal) 0%, transparent 100%);
+}
+.seccion-aliados::after {
+    right: 0;
+    background: linear-gradient(to left, var(--fondo-principal) 0%, transparent 100%);
+}
+
+.marquee-container {
+    display: flex;
+    width: 200%; 
+    animation: scroll-marquee 25s linear infinite;
+}
+
+.marquee-container:hover {
+    animation-play-state: paused; 
+}
+
+.marquee-track {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 50%;
+}
+
+.marquee-item {
+    width: 160px;
+    padding: 0 30px;
+}
+
+.marquee-item img {
+    width: 100%;
+    height: auto;
+    filter: grayscale(100%) opacity(0.3); 
+    transition: all 0.4s ease;
+}
+
+.marquee-item:hover img {
+    filter: grayscale(0%) opacity(1);
+    transform: scale(1.1);
+    filter: drop-shadow(0 0 15px rgba(186, 255, 41, 0.5)); 
+}
+
+@keyframes scroll-marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+/* =========================================
+   NUEVA CUADRÍCULA 3D: ALCANCE GLOBAL (PAÍSES)
+   ========================================= */
+.grid-paises {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px 80px;
+}
+
+.card-pais {
+    position: relative;
+    border-radius: 16px;
+    overflow: hidden;
+    aspect-ratio: 4/5; 
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    transition: transform 0.5s ease;
+    cursor: pointer;
+    border: 1px solid var(--borde-sutil);
+}
+
+.card-pais:hover {
+    transform: translateY(-10px);
+    border-color: rgba(186, 255, 41, 0.4);
+    box-shadow: 0 15px 40px rgba(186, 255, 41, 0.15);
+}
+
+.card-pais img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.7s ease, filter 0.5s ease;
+    filter: brightness(0.5);
+}
+
+.card-pais:hover img {
+    transform: scale(1.1);
+    filter: brightness(0.2); 
+}
+
+.info-pais {
+    position: absolute;
+    bottom: -80px; 
+    left: 0;
+    width: 100%;
+    padding: 40px 20px 20px;
+    background: linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,0.8) 50%, transparent 100%);
+    transition: bottom 0.5s ease;
+    text-align: left;
+}
+
+.card-pais:hover .info-pais {
+    bottom: 0; 
+}
+
+.info-pais h3 {
+    color: var(--acento-primario);
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.info-pais p {
+    color: var(--texto-principal);
+    font-size: 0.95rem;
+    line-height: 1.5;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+    transition-delay: 0.1s;
+}
+
+.card-pais:hover .info-pais p {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* =========================================
+   NUEVAS SECCIONES INICIO: CIFRAS Y METODOLOGÍA
+   ========================================= */
+.seccion-cifras {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 30px;
+    max-width: 1000px;
+    margin: 60px auto 100px;
+    text-align: center;
+}
+
+.cifra-item h3 {
+    font-size: 4rem;
+    color: var(--acento-primario);
+    text-shadow: 0 0 15px rgba(57, 255, 20, 0.4);
+    margin-bottom: 5px;
+    font-weight: 700;
+}
+
+.cifra-item p {
+    color: var(--texto-principal);
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.seccion-metodologia {
+    max-width: 1200px;
+    margin: 0 auto 100px;
+    padding: 0 20px;
+}
+
+.grid-metodologia {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.card-paso {
+    background: #0a0a0a;
+    border: 1px solid var(--borde-sutil);
+    border-radius: 16px;
+    padding: 40px 30px;
+    position: relative;
+    transition: all 0.4s ease;
+    overflow: hidden;
+}
+
+.card-paso:hover {
+    border-color: var(--acento-primario);
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(186, 255, 41, 0.05);
+}
+
+.numero-paso {
+    position: absolute;
+    top: -20px;
+    right: 15px;
+    font-size: 6rem;
+    font-weight: 800;
+    color: rgba(255, 255, 255, 0.03);
+    transition: color 0.4s ease, transform 0.4s ease;
+    z-index: 0;
+}
+
+.card-paso:hover .numero-paso {
+    color: rgba(57, 255, 20, 0.1);
+    transform: scale(1.1);
+}
+
+.card-paso h3 {
+    font-size: 1.5rem;
+    color: var(--texto-principal);
+    margin-bottom: 15px;
+    position: relative;
+    z-index: 1;
+}
+
+.card-paso p {
+    color: var(--texto-secundario);
+    line-height: 1.6;
+    position: relative;
+    z-index: 1;
+}
+
+/* =========================================
+   13. MEDIA QUERIES (RESPONSIVE)
+   ========================================= */
+.menu-toggle {
+    display: none; 
+    background: transparent;
+    border: none;
+    color: var(--acento-primario);
+    font-size: 2rem;
+    cursor: pointer;
+    z-index: 2001; 
+    transition: transform 0.3s ease;
+}
+
+@media (max-width: 900px) {
+  .container-footer { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block; 
+    }
+
+    .navbar {
+        position: fixed;
+        top: 0;
+        right: -100%; 
+        width: 80%;
+        max-width: 300px;
+        height: 100vh;
+        background-color: rgba(10, 10, 10, 0.98);
+        backdrop-filter: blur(10px);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transition: right 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+        z-index: 2000;
+        border-left: 1px solid var(--borde-sutil);
+        box-shadow: -10px 0 30px rgba(0,0,0,0.8);
+    }
+
+    .navbar.menu-abierto {
+        right: 0 !important; 
+    }
+
+    .navbar ul {
+        flex-direction: column;
+        gap: 30px;
+        width: 100%;
+        text-align: center;
+    }
+
+    .navbar a {
+        font-size: 1.5rem;
+        display: block;
+        width: 100%;
+        padding: 10px 0;
+    }
+
+    .titulo-principal { font-size: 2.5rem; text-align: center; }
+    .hero-texto { text-align: center; }
+    .seccion-hero, .seccion-sobre-mi { flex-direction: column; }
+    .contenedor-habilidades { flex-direction: column; }
+    .imagen-central-celular { order: -1; margin-bottom: 20px; }
+    body.menu-fijado { padding-top: 100px; }
+    
+    .titulo-contacto, .titulo-pagina, .titulo-form { font-size: 2.2rem; }
+    .cta-contenido { padding: 40px 20px; }
+    .subtitulo-contacto { font-size: 1.1rem; }
+    .footer-cta-final h2 { font-size: 1.8rem; }
+    .container-footer { grid-template-columns: 1fr; text-align: center; }
+    .profile-footer { align-items: center; }
+    .footer-bio { max-width: 100%; }
+    .columna-links a:hover { transform: translateY(-3px); }
+}
+
+
+.seccion-hero-servicios, .seccion-hero-testimonios { 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center; 
+    padding: 150px 20px 60px; /* Aumenté un poco el padding superior para que respire mejor con el menú */
+    width: 100%;
+}
+
+/* Forzamos el centrado del texto en los títulos y subtítulos */
+.titulo-pagina, .subtitulo-contacto {
+    text-align: center !important;
+    width: 100%;
+    max-width: 900px; /* Evita que el texto se estire demasiado en pantallas gigantes */
+    margin-left: auto;
+    margin-right: auto;
+}

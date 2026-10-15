@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Santiago Lozano{% endblock %}</title>
+    
+    <link rel="stylesheet" href="{{ url_for('static', filename='stilos.css') }}"> 
+    <script src="https://kit.fontawesome.com/149be14211.js" crossorigin="anonymous"></script>
+    <link rel="icon" href="{{ url_for('static', filename='IMG/ico.ico') }}">
+
+    {% block meta_tags %}{% endblock %}
+</head>
+<body class="{% block body_class %}{% endblock %}">
+
+    <header class="cabecera-principal">
+        <div class="logo-contenedor">
+            <img src="{{ url_for('static', filename='IMG/logo de s.webp') }}" alt="Logo Santiago Lozano" class="logo-img">
+        </div>
+        
+        <button class="menu-toggle" aria-label="Abrir menú" id="btn-menu">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+
+        <nav class="navbar" id="navbar">
+            <ul>
+                <li><a href="{{ url_for('index') }}" class="{% if request.endpoint == 'index' %}activo{% endif %}">Inicio</a></li>
+                <li><a href="{{ url_for('servicios') }}" class="{% if request.endpoint == 'servicios' %}activo{% endif %}">Servicios</a></li>
+                <li><a href="{{ url_for('empresa') }}" class="{% if request.endpoint == 'empresa' %}activo{% endif %}">Empresa</a></li>
+                <li><a href="{{ url_for('testimonios') }}" class="{% if request.endpoint == 'testimonios' %}activo{% endif %}">Testimonios</a></li>
+                <li><a href="{{ url_for('contacto') }}" class="{% if request.endpoint == 'contacto' %}activo{% endif %}">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    {% block content %}{% endblock %}
+
+   <!-- ================= FOOTER ULTRA PREMIUM ================= -->
+    <footer class="pie-de-pagina oculto-scroll">
+        <!-- Llamado a la acción gigante -->
+        <div class="footer-cta-final">
+            <span class="footer-badge">Sede: Cali, Colombia | Operación Global</span>
+            <h2>¿Listo para blindar y <br>escalar tu marca?</h2>
+            <p>Conecta conmigo hoy. Diseñemos una estrategia digital de alto impacto y fortalezcamos tu ciberseguridad corporativa.</p>
+            <a href="https://wa.me/573225830217?text=Hola%20Santiago,%20quiero%20llevar%20mi%20marca%20al%20siguiente%20nivel" target="_blank" class="animated-button">
+                <span class="tex">Iniciar Proyecto</span>
+                <span class="circle"></span>
+                <svg viewBox="0 0 24 24" class="arr-2" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
+                </svg>
+            </a>
+        </div>
+
+        <!-- Contenido del Footer (4 Columnas) -->
+        <div class="container-footer">
+            
+            <!-- Columna 1: Marca -->
+            <div class="profile-footer">
+                <img src="{{ url_for('static', filename='IMG/logo de s.webp') }}" alt="Santiago Lozano Logo" class="logo-footer" loading="lazy">
+                <p class="footer-bio">Experto global en marketing estratégico, growth hacking y ciberseguridad corporativa. Transformamos visiones en resultados medibles.</p>
+            </div>
+
+            <!-- Columna 2: Explorar -->
+            <div class="columna-links">
+                <h3>Explorar</h3>
+                <ul>
+                    <li><a href="{{ url_for('index') }}">Inicio</a></li>
+                    <li><a href="{{ url_for('servicios') }}">Soluciones</a></li>
+                    <li><a href="{{ url_for('empresa') }}">Alcance Global</a></li>
+                    <li><a href="{{ url_for('testimonios') }}">Casos de Éxito</a></li>
+                </ul>
+            </div>
+
+            <!-- Columna 3: Soporte -->
+            <div class="columna-links">
+                <h3>Contacto</h3>
+                <ul>
+                    <li><a href="{{ url_for('contacto') }}">Agendar Consultoría</a></li>
+                    <li><a href="mailto:tu-correo@email.com">Soporte Técnico</a></li>
+                    <li><a href="https://wa.me/573225830217" target="_blank">Línea Directa</a></li>
+                </ul>
+            </div>
+
+            <!-- Columna 4: Redes -->
+            <div class="columna-links">
+                <h3>Comunidad</h3>
+                <p class="footer-bio" style="margin-bottom: 10px; font-size: 0.85rem;">Únete a nuestra red y descubre las últimas tendencias en tecnología y marketing.</p>
+               <div class="redes-footer">
+                <a href="https://www.instagram.com/el_lozano2107" class="social-icon" target="_blank" aria-label="Instagram">
+                <i class="fa-brands fa-instagram"></i>
+                </a>
+                <a href="https://wa.me/573225830217" class="social-icon" target="_blank" aria-label="WhatsApp">
+            <i class="fa-brands fa-whatsapp"></i>
+    </a>
+</div>
+            </div>
+
+        </div>
+
+        <div class="copyright">
+            <p>&copy; 2026 Santiago Lozano. Diseñado para el alto rendimiento.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Scroll Reveal
+            const elementosOcultos = document.querySelectorAll('.oculto-scroll');
+            const observador = new IntersectionObserver((entradas) => {
+                entradas.forEach((entrada) => {
+                    if (entrada.isIntersecting) {
+                        entrada.target.classList.add('mostrar-scroll');
+                    }
+                });
+            }, { threshold: 0.15 });
+            elementosOcultos.forEach((el) => observador.observe(el));
+
+            // Menú Móvil
+            const btnMenu = document.getElementById('btn-menu');
+            const navbar = document.getElementById('navbar');
+
+            if (btnMenu && navbar) {
+                btnMenu.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    navbar.classList.toggle('menu-abierto');
+                    
+                    if (navbar.classList.contains('menu-abierto')) {
+                        btnMenu.innerHTML = '<i class="fa-solid fa-xmark"></i>';
+                    } else {
+                        btnMenu.innerHTML = '<i class="fa-solid fa-bars"></i>';
+                    }
+                });
+
+                const enlaces = navbar.querySelectorAll('a');
+                enlaces.forEach(enlace => {
+                    enlace.addEventListener('click', () => {
+                        navbar.classList.remove('menu-abierto');
+                        btnMenu.innerHTML = '<i class="fa-solid fa-bars"></i>';
+                    });
+                });
+            }
+        });
+    </script>
+
+    {% block scripts %}{% endblock %}
+</body>
+</html>

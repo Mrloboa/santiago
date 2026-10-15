@@ -1,0 +1,89 @@
+{% extends "base.html" %}
+
+{% block title %}Empresa y Aliados | Santiago Lozano{% endblock %}
+{% block body_class %}pagina-empresas{% endblock %}
+
+{% block content %}
+
+<!-- ================= MARQUEE INFINITO DE ALIADOS ================= -->
+<section class="seccion-aliados oculto-scroll">
+    <h2 class="titulo-aliados">Aliados Comerciales</h2>
+    <div class="marquee-container">
+        <!-- PISTA 1 -->
+        <div class="marquee-track">
+            <div class="marquee-item"><img src="{{ url_for('static', filename='IMG/1.webp') }}" alt="Comunic Arce" loading="lazy"></div>
+            <div class="marquee-item"><img src="{{ url_for('static', filename='IMG/2.webp') }}" alt="Yugen Music" loading="lazy"></div>
+            <div class="marquee-item"><img src="{{ url_for('static', filename='IMG/3.webp') }}" alt="Yugen Films" loading="lazy"></div>
+            <div class="marquee-item"><img src="{{ url_for('static', filename='IMG/4.webp') }}" alt="Four Loko" loading="lazy"></div>
+            <div class="marquee-item"><img src="{{ url_for('static', filename='IMG/5.webp') }}" alt="Cerveza Andina" loading="lazy"></div>
+            <div class="marquee-item"><img src="{{ url_for('static', filename='IMG/6.webp') }}" alt="Aliado Urbano" loading="lazy"></div>
+            <div class="marquee-item"><img src="{{ url_for('static', filename='IMG/7.webp') }}" alt="La Crepe" loading="lazy"></div>
+            <div class="marquee-item"><img src="{{ url_for('static', filename='IMG/8.webp') }}" alt="El Rancho" loading="lazy"></div>
+            <div class="marquee-item"><img src="{{ url_for('static', filename='IMG/9.webp') }}" alt="Trafficantes" loading="lazy"></div>
+            <div class="marquee-item"><img src="{{ url_for('static', filename='IMG/10.webp') }}" alt="Shoko Barcelona" loading="lazy"></div>
+        </div>
+        <!-- PISTA 2 (CLON EXACTO PARA EL BUCLE INFINITO) -->
+        <div class="marquee-track">
+            <div class="marquee-item"><img src="{{ url_for('static', filename='IMG/1.webp') }}" alt="Comunic Arce" loading="lazy"></div>
+            <div class="marquee-item"><img src="{{ url_for('static', filename='IMG/2.webp') }}" alt="Yugen Music" loading="lazy"></div>
+            <div class="marquee-item"><img src="{{ url_for('static', filename='IMG/3.webp') }}" alt="Yugen Films" loading="lazy"></div>
+            <div class="marquee-item"><img src="{{ url_for('static', filename='IMG/4.webp') }}" alt="Four Loko" loading="lazy"></div>
+            <div class="marquee-item"><img src="{{ url_for('static', filename='IMG/5.webp') }}" alt="Cerveza Andina" loading="lazy"></div>
+            <div class="marquee-item"><img src="{{ url_for('static', filename='IMG/6.webp') }}" alt="Aliado Urbano" loading="lazy"></div>
+            <div class="marquee-item"><img src="{{ url_for('static', filename='IMG/7.webp') }}" alt="La Crepe" loading="lazy"></div>
+            <div class="marquee-item"><img src="{{ url_for('static', filename='IMG/8.webp') }}" alt="El Rancho" loading="lazy"></div>
+            <div class="marquee-item"><img src="{{ url_for('static', filename='IMG/9.webp') }}" alt="Trafficantes" loading="lazy"></div>
+            <div class="marquee-item"><img src="{{ url_for('static', filename='IMG/10.webp') }}" alt="Shoko Barcelona" loading="lazy"></div>
+        </div>
+    </div>
+</section>
+
+<!-- ================= CUADRÍCULA 3D DE ALCANCE ================= -->
+<main class="seccion-empresas">
+    <h1 class="titulo-pagina oculto-scroll">Alcance <span class="resaltado-neon">Global</span></h1>
+
+    <div class="grid-paises oculto-scroll">
+        
+        <div class="card-pais">
+            <img src="{{ url_for('static', filename='IMG/mex.webp') }}" alt="México" loading="lazy">
+            <div class="info-pais">
+                <h3>México</h3>
+                <p>Estrategias digitales adaptadas al mercado mexicano con enfoque en resultados a largo plazo y retención de usuarios.</p>
+            </div>
+        </div>
+
+        <div class="card-pais">
+            <img src="{{ url_for('static', filename='IMG/usa.webp') }}" alt="USA" loading="lazy">
+            <div class="info-pais">
+                <h3>USA</h3>
+                <p>Campañas de alto impacto diseñadas específicamente para penetrar y destacar en mercados altamente competitivos.</p>
+            </div>
+        </div>
+
+        <div class="card-pais">
+            <img src="{{ url_for('static', filename='IMG/col.webp') }}" alt="Colombia" loading="lazy">
+            <div class="info-pais">
+                <h3>Colombia</h3>
+                <p>Soluciones digitales de vanguardia enfocadas en aumentar exponencialmente el engagement y la visibilidad local.</p>
+            </div>
+        </div>
+
+        <div class="card-pais">
+            <img src="{{ url_for('static', filename='IMG/green.webp') }}" alt="Green Jungle Fest" loading="lazy">
+            <div class="info-pais">
+                <h3>Green Jungle</h3>
+                <p>Marketing integral, despliegue de marca y cobertura digital para experiencias musicales y culturales memorables.</p>
+            </div>
+        </div>
+
+        <div class="card-pais">
+            <img src="{{ url_for('static', filename='IMG/esp.webp') }}" alt="España" loading="lazy">
+            <div class="info-pais">
+                <h3>España</h3>
+                <p>Presencia online optimizada con campañas digitales eficientes, tráfico segmentado y crecimiento orgánico sostenido.</p>
+            </div>
+        </div>
+
+    </div>
+</main>
+{% endblock %}
