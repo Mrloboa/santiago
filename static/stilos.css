@@ -1021,29 +1021,33 @@ body.menu-fijado {
    NUEVA SECCIÓN: ALIADOS (MARQUEE INFINITO)
    ========================================= */
 .seccion-aliados {
-    padding: 80px 0 40px 0;
+    padding: 60px 0 30px 0; /* Padding ligeramente menor para que en móvil no ocupe demasiado espacio */
     background: var(--fondo-principal);
     overflow: hidden;
     position: relative;
+    width: 100%;
 }
 
 .titulo-aliados {
     text-align: center;
-    font-size: 1.5rem;
-    margin-bottom: 40px;
+    font-size: 1.4rem; /* Se reduce levemente para que en celulares de pantalla pequeña no haga saltos de línea raros */
+    margin-bottom: 30px;
     color: var(--texto-secundario);
     text-transform: uppercase;
-    letter-spacing: 3px;
+    letter-spacing: 2px;
+    padding: 0 15px; /* Evita que el texto toque los bordes en el móvil */
 }
 
+/* Sombras en los bordes para dar efecto de profundidad (desvanecido) */
 .seccion-aliados::before,
 .seccion-aliados::after {
     content: "";
     position: absolute;
     top: 0;
-    width: 150px;
+    width: 80px; /* Reducido de 150px a 80px para que no tape las marcas en pantallas angostas de celular */
     height: 100%;
     z-index: 2;
+    pointer-events: none; /* Asegura que no bloquee los clics o toques */
 }
 .seccion-aliados::before {
     left: 0;
@@ -1056,7 +1060,7 @@ body.menu-fijado {
 
 .marquee-container {
     display: flex;
-    width: 200%; 
+    width: max-content; /* Se adapta dinámicamente al contenido real, evitando desbordamientos forzados */
     animation: scroll-marquee 25s linear infinite;
 }
 
@@ -1068,18 +1072,24 @@ body.menu-fijado {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    width: 50%;
+    /* Al usar flex-shrink: 0, le impedimos al navegador que reduzca los logos a un tamaño invisible */
+    flex-shrink: 0; 
 }
 
 .marquee-item {
-    width: 160px;
-    padding: 0 30px;
+    width: 120px; /* En celular el tamaño ideal es 120px para que quepan y se distingan bien; antes era 160px */
+    padding: 0 15px; /* Ajustado el espaciado para que no se separen de más */
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .marquee-item img {
     width: 100%;
     height: auto;
-    filter: grayscale(100%) opacity(0.3); 
+    max-height: 50px; /* Limitamos el alto para que los logos se mantengan alineados y de un tamaño estético */
+    object-fit: contain;
+    filter: grayscale(100%) opacity(0.4); /* Un toque más visible de opacidad para que en celular (que suele usarse con más brillo o reflejos) se note más */
     transition: all 0.4s ease;
 }
 
@@ -1089,11 +1099,35 @@ body.menu-fijado {
     filter: drop-shadow(0 0 15px rgba(186, 255, 41, 0.5)); 
 }
 
+/* Animación de deslizamiento infinito */
 @keyframes scroll-marquee {
     0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
+    100% { transform: translateX(-50%); } /* Sigue desplazando la mitad, garantizando un bucle perfecto sin saltos bruscos */
 }
 
+/* AJUSTES ADICIONALES PARA PANTALLAS GRANDES */
+@media (min-width: 769px) {
+    .seccion-aliados {
+        padding: 80px 0 40px 0;
+    }
+    .titulo-aliados {
+        font-size: 1.5rem;
+        margin-bottom: 40px;
+        letter-spacing: 3px;
+    }
+    .seccion-aliados::before,
+    .seccion-aliados::after {
+        width: 150px;
+    }
+    .marquee-item {
+        width: 160px;
+        padding: 0 30px;
+    }
+    .marquee-item img {
+        max-height: 65px;
+        filter: grayscale(100%) opacity(0.3);
+    }
+}
 /* =========================================
    NUEVA CUADRÍCULA 3D: ALCANCE GLOBAL (PAÍSES)
    ========================================= */
